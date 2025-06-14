@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'otpscreen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -10,28 +11,72 @@ class LoginScreen extends StatelessWidget {
         children: [
           Expanded(
             flex: 2,
-
             child: Container(
-              color: Colors.deepOrange,
-              child: const Center(
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Text(
-                    'Welcome to the HRMS Portal',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
+              decoration: BoxDecoration(color: Colors.deepOrange),
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: -56.92,
+                    left: -107,
+                    child: ShaderMask(
+                      shaderCallback: (Rect bounds) {
+                        return const RadialGradient(
+                          center: Alignment.center,
+                          radius: 1.0,
+                          colors: [Color(0xFFFF671F), Color(0xFFFFFFFF)],
+                          tileMode: TileMode.mirror,
+                        ).createShader(bounds);
+                      },
+                      blendMode: BlendMode.srcIn,
+                      child: Image.asset(
+                        'img/one.png',
+                        width: 614.02,
+                        height: 614.02,
+                      ),
                     ),
                   ),
-                ),
+                  Positioned(
+                    top: 557.1,
+                    left: 332.19,
+                    child: ShaderMask(
+                      shaderCallback: (Rect bounds) {
+                        return const RadialGradient(
+                          center: Alignment.center,
+                          radius: 1.0,
+                          colors: [Color(0xFFFF671F), Color(0xFFFFFFFF)],
+                          tileMode: TileMode.mirror,
+                        ).createShader(bounds);
+                      },
+                      blendMode: BlendMode.srcIn,
+                      child: Image.asset(
+                        'img/two.png',
+                        width: 500,
+                        height: 409.81,
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: RichText(
+                      textAlign: TextAlign.justify,
+                      text: const TextSpan(
+                        style: TextStyle(fontSize: 36, color: Colors.white),
+                        children: [
+                          TextSpan(text: 'Welcome to the\n'),
+                          TextSpan(
+                            text: 'HRMS Portal',
+                            style: TextStyle(fontWeight: FontWeight.w800),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
 
           Expanded(
-            flex: 3,
+            flex: 2,
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 50.0),
@@ -100,6 +145,12 @@ class LoginScreen extends StatelessWidget {
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OtpScreen(),
+                            ),
+                          );
                           print('Submit button pressed!');
                         },
                         style: ElevatedButton.styleFrom(
