@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/loginscreen.dart';
 
+import 'package:my_app/otpscreen.dart';
+
 void main() {
   runApp(const HRMSApp());
 }
@@ -14,11 +16,11 @@ class HRMSApp extends StatelessWidget {
       title: 'HRMS Portal',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch:
-            Colors.blue, // You can customize your app's primary color
+        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const LoginScreen(), // Start with the LoginScreen
+
+      home: const LoginScreen(),
     );
   }
 }
